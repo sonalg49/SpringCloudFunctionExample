@@ -99,6 +99,14 @@ public class FunctionClass {
 	}
 	
 	@Bean
+	public Function<String,Order> getOrderById(){
+		return (id) -> {
+			Order order = orderRepository.findById(id).get();
+			return order;
+		};
+	}
+	
+	@Bean
 	public Function<Order, String> addorder(){
 			return order -> {
 				//Order addedOrder = itemservice.addOrder(order);
